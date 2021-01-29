@@ -19,7 +19,4 @@
     <string name="activity_main_calculator_equals_text">=</string>
     <string name="activity_main_calculator_result_text">Result</string>
     <string name="activity_main_calculator_operation_text">Operation</string>
-    <string name="activity_main_calculator_wrong_operator_error">Wrong Operator</string>
-    <string name="activity_main_calculator_incomplete_operation_error">Incomplete operation</string>
-    <string name="activity_main_calculator_divide_by_zero_error">Can not divide by 0</string>
 </resources>
