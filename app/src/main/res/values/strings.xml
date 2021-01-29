@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">CalculatorKT</string>
+    <string name="app_name">Calculator</string>
+    <string name="content_description_app_icon">description app icon</string>
+    <string name="activity_main_calculator_zero_text">0</string>
+    <string name="activity_main_calculator_one_text">1</string>
+    <string name="activity_main_calculator_two_text">2</string>
+    <string name="activity_main_calculator_three_text">3</string>
+    <string name="activity_main_calculator_four_text">4</string>
+    <string name="activity_main_calculator_five_text">5</string>
+    <string name="activity_main_calculator_six_text">6</string>
+    <string name="activity_main_calculator_seven_text">7</string>
+    <string name="activity_main_calculator_eight_text">8</string>
+    <string name="activity_main_calculator_nine_text">9</string>
+    <string name="activity_main_calculator_add_text">+</string>
+    <string name="activity_main_calculator_sub_text">-</string>
+    <string name="activity_main_calculator_product_text">*</string>
+    <string name="activity_main_calculator_division_text">/</string>
+    <string name="activity_main_calculator_clear_text">c</string>
+    <string name="activity_main_calculator_equals_text">=</string>
+    <string name="activity_main_calculator_result_text">Result</string>
+    <string name="activity_main_calculator_operation_text">Operation</string>
+    <string name="activity_main_calculator_wrong_operator_error">Wrong Operator</string>
+    <string name="activity_main_calculator_incomplete_operation_error">Incomplete operation</string>
+    <string name="activity_main_calculator_divide_by_zero_error">Can not divide by 0</string>
 </resources>

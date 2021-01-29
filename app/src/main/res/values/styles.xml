@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="title_style">
+        <item name="fontFamily">@font/carter_one</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/activity_main_text_size_title</item>
+        <item name="android:layout_margin">@dimen/activity_main_margin_title</item>
+    </style>
+
+    <style name="screen_visor_style">
+        <item name="android:background">@color/activity_main_color_screen_visor</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingEnd">@dimen/activity_main_padding_end_screen</item>
+        <item name="android:paddingTop">@dimen/activity_main_padding_top_screen</item>
+    </style>
+
+    <style name="screen_visor_operation_style" parent="screen_visor_style">
+        <item name="android:textColor">@color/activity_main_color_operation_text</item>
+        <item name="android:textSize">@dimen/activity_main_text_size_screen_operation</item>
+    </style>
+
+    <style name="screen_visor_result_style" parent="screen_visor_style">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/activity_main_text_size_screen_result</item>
+        <item name="android:paddingBottom">@dimen/activity_main_padding_bottom_screen_result</item>
+        <item name="android:layout_marginBottom">@dimen/activity_main_margin_bottom_screen_result</item>
+    </style>
+
+    <style name="button_style">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="backgroundTint">@color/activity_main_color_default_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/activity_main_text_size_button</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="operation_button_style" parent="button_style">
+        <item name="backgroundTint">@color/activity_main_color_operation_button</item>
+    </style>
+
+</resources>

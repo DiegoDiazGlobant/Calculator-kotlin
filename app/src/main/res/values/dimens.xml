@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_main_text_size_title">20sp</dimen>
+    <dimen name="activity_main_margin_title">20dp</dimen>
+    <dimen name="activity_main_margin_icon">20dp</dimen>
+    <dimen name="activity_main_size_icon">45dp</dimen>
+    <dimen name="activity_main_padding_top_screen">50dp</dimen>
+    <dimen name="activity_main_padding_end_screen">15dp</dimen>
+    <dimen name="activity_main_text_size_screen_operation">30sp</dimen>
+    <dimen name="activity_main_text_size_screen_result">35sp</dimen>
+    <dimen name="activity_main_padding_bottom_screen_result">10dp</dimen>
+    <dimen name="activity_main_margin_bottom_screen_result">40dp</dimen>
+    <dimen name="activity_main_text_size_button">20sp</dimen>
+    <dimen name="activity_main_margin_top_button">40dp</dimen>
+</resources>
