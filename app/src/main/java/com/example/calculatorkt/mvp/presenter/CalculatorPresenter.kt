@@ -9,15 +9,14 @@ class CalculatorPresenter(
     private val view: CalculatorContract.View
 ) : CalculatorContract.Presenter {
 
-
-    override fun onNumberButtonPressed(buttonText: String?) {
-        model.setNewOperand(buttonText!!)
+    override fun onNumberButtonPressed(buttonText: String) {
+        model.setNewOperand(buttonText)
         view.showOperationValue(model.operationValue)
         view.showResultValue(buttonText)
     }
 
-    override fun onOperatorButtonPressed(buttonText: String?) {
-        if (model.canPressOperator(buttonText!!)) {
+    override fun onOperatorButtonPressed(buttonText: String) {
+        if (model.canPressOperator(buttonText)) {
             model.setNewOperator(buttonText)
             view.showOperationValue(model.operationValue)
             view.showResultValue(buttonText)

@@ -10,12 +10,11 @@ import com.google.android.material.snackbar.Snackbar
 class CalculatorView(activity: Activity, private val binding: ActivityMainBinding) :
     ActivityView(activity), CalculatorContract.View {
 
-
-    override fun showOperationValue(operation: String?) {
+    override fun showOperationValue(operation: String) {
         binding.textViewOperations.text = operation
     }
 
-    override fun showResultValue(result: String?) {
+    override fun showResultValue(result: String) {
         binding.textViewResult.text = result
     }
 
@@ -44,12 +43,12 @@ class CalculatorView(activity: Activity, private val binding: ActivityMainBindin
     }
 
     override fun clearValues() {
-        showOperationValue(context?.getString(R.string.activity_main_calculator_operation_text))
-        showResultValue(context?.getString(R.string.activity_main_calculator_result_text))
+        showOperationValue(context?.getString(R.string.activity_main_calculator_operation_text).toString())
+        showResultValue(context?.getString(R.string.activity_main_calculator_result_text).toString())
     }
 
-    override fun clearLast(operation: String?) {
+    override fun clearLast(operation: String) {
         showOperationValue(operation)
-        showResultValue(context?.getString(R.string.activity_main_calculator_result_text))
+        showResultValue(context?.getString(R.string.activity_main_calculator_result_text).toString())
     }
 }

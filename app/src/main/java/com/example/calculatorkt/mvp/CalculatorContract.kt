@@ -16,20 +16,20 @@ interface CalculatorContract {
     }
 
     interface Presenter {
-        fun onNumberButtonPressed(buttonText: String?)
-        fun onOperatorButtonPressed(buttonText: String?)
+        fun onNumberButtonPressed(buttonText: String)
+        fun onOperatorButtonPressed(buttonText: String)
         fun onEqualsButtonPressed()
         fun onClearAllButtonPressed(): Boolean
         fun onClearLastButtonPressed()
     }
 
     interface View {
-        fun showOperationValue(operation: String?)
-        fun showResultValue(result: String?)
+        fun showOperationValue(operation: String)
+        fun showResultValue(result: String)
         fun showWrongOperator()
         fun showIncompleteOperation()
         fun showDivideByZero()
         fun clearValues()
-        fun clearLast(operation: String?)
+        fun clearLast(operation: String)
     }
 }

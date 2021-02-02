@@ -42,9 +42,7 @@ class CalculatorModel : CalculatorContract.Model {
         }
     }
 
-    override fun canPressOperator(value: String): Boolean {
-        return !firstOperand.isEmpty() && operator.isEmpty() && secondOperand.isEmpty()
-    }
+    override fun canPressOperator(value: String) = !firstOperand.isEmpty() && operator.isEmpty() && secondOperand.isEmpty()
 
     override fun getResultValue(): String {
         resultEnum = ResultEnum.SUCCESS
@@ -71,9 +69,7 @@ class CalculatorModel : CalculatorContract.Model {
         }
     }
 
-    private fun incompleteOperation(): Boolean {
-        return !operator.isEmpty() && secondOperand.isEmpty()
-    }
+    private fun incompleteOperation() = !operator.isEmpty() && secondOperand.isEmpty()
 
     override fun deleteLast() {
         if (!secondOperand.isEmpty()) {
@@ -85,7 +81,7 @@ class CalculatorModel : CalculatorContract.Model {
             firstOperand =
                 firstOperand.substring(CalculatorModel.STRING_BEGIN_POSITION, firstOperand.length - CalculatorModel.STRING_LAST_POSITION)
         }
-        operationValue = firstOperand + operator + secondOperand
+        operationValue = "$firstOperand$operator$secondOperand"
     }
 
     override fun resetValues() {
