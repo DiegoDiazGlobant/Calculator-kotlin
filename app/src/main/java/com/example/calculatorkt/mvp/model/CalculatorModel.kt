@@ -15,7 +15,7 @@ class CalculatorModel : CalculatorContract.Model {
     private var firstOperand: String = EMPTY
     private var operator: String = EMPTY
     private var secondOperand: String = EMPTY
-    override var resultEnum: ResultEnum = ResultEnum.SUCCESS
+    override var resultEnum: ResultEnum = ResultEnum.NONE
 
     companion object {
         private const val STRING_BEGIN_POSITION = 0
