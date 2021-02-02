@@ -23,23 +23,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setListeners() {
-        setUpClickListenerToButton(binding.buttonAdd)
-        setUpClickListenerToButton(binding.buttonSub)
-        setUpClickListenerToButton(binding.buttonProduct)
-        setUpClickListenerToButton(binding.buttonDivision)
-        setUpClickListenerToButton(binding.buttonZero)
-        setUpClickListenerToButton(binding.buttonOne)
-        setUpClickListenerToButton(binding.buttonTwo)
-        setUpClickListenerToButton(binding.buttonThree)
-        setUpClickListenerToButton(binding.buttonFour)
-        setUpClickListenerToButton(binding.buttonFive)
-        setUpClickListenerToButton(binding.buttonSix)
-        setUpClickListenerToButton(binding.buttonSeven)
-        setUpClickListenerToButton(binding.buttonEight)
-        setUpClickListenerToButton(binding.buttonNine)
+        setUpClickListenerToOperatorButton(binding.buttonAdd)
+        setUpClickListenerToOperatorButton(binding.buttonSub)
+        setUpClickListenerToOperatorButton(binding.buttonProduct)
+        setUpClickListenerToOperatorButton(binding.buttonDivision)
+        setUpClickListenerToOperandButton(binding.buttonZero)
+        setUpClickListenerToOperandButton(binding.buttonOne)
+        setUpClickListenerToOperandButton(binding.buttonTwo)
+        setUpClickListenerToOperandButton(binding.buttonThree)
+        setUpClickListenerToOperandButton(binding.buttonFour)
+        setUpClickListenerToOperandButton(binding.buttonFive)
+        setUpClickListenerToOperandButton(binding.buttonSix)
+        setUpClickListenerToOperandButton(binding.buttonSeven)
+        setUpClickListenerToOperandButton(binding.buttonEight)
+        setUpClickListenerToOperandButton(binding.buttonNine)
+        binding.buttonEquals.setOnClickListener { presenter.onEqualsButtonPressed() }
+        binding.buttonClear.setOnClickListener { presenter.onClearLastButtonPressed() }
+        binding.buttonClear.setOnLongClickListener { presenter.onClearAllButtonPressed() }
     }
 
-    private fun setUpClickListenerToButton(buttonPressed: Button) {
-        buttonPressed.setOnClickListener { presenter.onButtonPressed(buttonPressed.text.toString()) }
+    private fun setUpClickListenerToOperatorButton(buttonPressed: Button) {
+        buttonPressed.setOnClickListener { presenter.onOperatorButtonPressed(buttonPressed.text.toString()) }
+    }
+
+    private fun setUpClickListenerToOperandButton(buttonPressed: Button) {
+        buttonPressed.setOnClickListener { presenter.onNumberButtonPressed(buttonPressed.text.toString()) }
     }
 }
