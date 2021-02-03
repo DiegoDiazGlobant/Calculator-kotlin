@@ -45,7 +45,6 @@ class CalculatorModel : CalculatorContract.Model {
     override fun canPressOperator(value: String) = !firstOperand.isEmpty() && operator.isEmpty() && secondOperand.isEmpty()
 
     override fun getResultValue(): String {
-        resultEnum = ResultEnum.SUCCESS
         if (incompleteOperation()) {
             resultEnum = ResultEnum.INCOMPLETE_OPERATION_ERROR
             return EMPTY
@@ -55,14 +54,24 @@ class CalculatorModel : CalculatorContract.Model {
 
     private fun doOperation(): String {
         return when (operator) {
-            ADD -> (firstOperand.toDouble() + secondOperand.toDouble()).toString()
-            SUB -> (firstOperand.toDouble() - secondOperand.toDouble()).toString()
-            PRODUCT -> (firstOperand.toDouble() * secondOperand.toDouble()).toString()
+            ADD -> {
+                resultEnum = ResultEnum.SUCCESS
+                (firstOperand.toDouble() + secondOperand.toDouble()).toString()
+            }
+            SUB -> {
+                resultEnum = ResultEnum.SUCCESS
+                (firstOperand.toDouble() - secondOperand.toDouble()).toString()
+            }
+            PRODUCT -> {
+                resultEnum = ResultEnum.SUCCESS
+                (firstOperand.toDouble() * secondOperand.toDouble()).toString()
+            }
             DIV -> {
                 if (secondOperand == ZERO) {
                     resultEnum = ResultEnum.DIVIDE_BY_ZERO_ERROR
                     return EMPTY
                 }
+                resultEnum = ResultEnum.SUCCESS
                 (firstOperand.toDouble() / secondOperand.toDouble()).toString()
             }
             else -> firstOperand
@@ -89,6 +98,6 @@ class CalculatorModel : CalculatorContract.Model {
         operator = EMPTY
         secondOperand = EMPTY
         operationValue = EMPTY
-        resultEnum = ResultEnum.SUCCESS
+        resultEnum = ResultEnum.NONE
     }
 }
