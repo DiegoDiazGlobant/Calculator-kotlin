@@ -16,6 +16,9 @@ class CalculatorPresenter(
     }
 
     override fun onOperatorButtonPressed(buttonText: String) {
+        if (model.equalsPressed) {
+            model.updateValues()
+        }
         if (model.canPressOperator(buttonText)) {
             model.setNewOperator(buttonText)
             view.showOperationValue(model.operationValue)
@@ -30,13 +33,16 @@ class CalculatorPresenter(
         when (model.resultEnum) {
             ResultEnum.DIVIDE_BY_ZERO_ERROR -> view.showDivideByZero()
             ResultEnum.INCOMPLETE_OPERATION_ERROR -> view.showIncompleteOperation()
-            ResultEnum.SUCCESS -> view.showResultValue(result)
+            ResultEnum.SUCCESS -> {
+                view.showResultValue(result)
+                model.equalsPressed = true
+            }
         }
     }
 
     override fun onClearLastButtonPressed() {
         model.deleteLast()
-        if (model.operationValue.equals(EMPTY)) {
+        if (model.operationValue.isEmpty()) {
             view.clearValues()
         } else {
             view.clearLast(model.operationValue)

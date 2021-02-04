@@ -7,12 +7,14 @@ interface CalculatorContract {
     interface Model {
         var operationValue: String
         var resultEnum: ResultEnum
+        var equalsPressed: Boolean
         fun setNewOperand(value: String)
         fun setNewOperator(value: String)
         fun canPressOperator(value: String): Boolean
         fun getResultValue(): String
         fun deleteLast()
         fun resetValues()
+        fun updateValues()
     }
 
     interface Presenter {
