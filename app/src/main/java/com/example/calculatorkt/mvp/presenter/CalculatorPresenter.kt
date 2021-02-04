@@ -42,7 +42,7 @@ class CalculatorPresenter(
 
     override fun onClearLastButtonPressed() {
         model.deleteLast()
-        if (model.operationValue == EMPTY) {
+        if (model.operationValue.isEmpty()) {
             view.clearValues()
         } else {
             view.clearLast(model.operationValue)
