@@ -16,6 +16,7 @@ class CalculatorModel : CalculatorContract.Model {
     private var operator: String = EMPTY
     private var secondOperand: String = EMPTY
     override var resultEnum: ResultEnum = ResultEnum.NONE
+    override var equalsPressed = false
 
     companion object {
         private const val STRING_BEGIN_POSITION = 0
@@ -42,7 +43,9 @@ class CalculatorModel : CalculatorContract.Model {
         }
     }
 
-    override fun canPressOperator(value: String) = !firstOperand.isEmpty() && operator.isEmpty() && secondOperand.isEmpty()
+    override fun canPressOperator(value: String) = firstOperand.isEmpty() && value == SUB ||
+            firstOperand.isNotEmpty() && firstOperand != SUB && operator.isEmpty() ||
+            operator.isNotEmpty() && secondOperand.isEmpty() && value == SUB
 
     override fun getResultValue(): String {
         if (incompleteOperation()) {
@@ -78,17 +81,17 @@ class CalculatorModel : CalculatorContract.Model {
         }
     }
 
-    private fun incompleteOperation() = !operator.isEmpty() && secondOperand.isEmpty()
+    private fun incompleteOperation() = operator.isNotEmpty() && secondOperand.isEmpty()
 
     override fun deleteLast() {
-        if (!secondOperand.isEmpty()) {
+        if (secondOperand.isNotEmpty()) {
             secondOperand =
-                secondOperand.substring(CalculatorModel.STRING_BEGIN_POSITION, secondOperand.length - CalculatorModel.STRING_LAST_POSITION)
-        } else if (!operator.isEmpty()) {
-            operator = operator.substring(CalculatorModel.STRING_BEGIN_POSITION, operator.length - CalculatorModel.STRING_LAST_POSITION)
-        } else if (!firstOperand.isEmpty()) {
+                secondOperand.substring(STRING_BEGIN_POSITION, secondOperand.length - STRING_LAST_POSITION)
+        } else if (operator.isNotEmpty()) {
+            operator = operator.substring(STRING_BEGIN_POSITION, operator.length - STRING_LAST_POSITION)
+        } else if (firstOperand.isNotEmpty()) {
             firstOperand =
-                firstOperand.substring(CalculatorModel.STRING_BEGIN_POSITION, firstOperand.length - CalculatorModel.STRING_LAST_POSITION)
+                firstOperand.substring(STRING_BEGIN_POSITION, firstOperand.length - STRING_LAST_POSITION)
         }
         operationValue = "$firstOperand$operator$secondOperand"
     }
@@ -99,5 +102,18 @@ class CalculatorModel : CalculatorContract.Model {
         secondOperand = EMPTY
         operationValue = EMPTY
         resultEnum = ResultEnum.NONE
+        equalsPressed = false
+    }
+
+    override fun updateValues() {
+        val result = getResultValue()
+        if (resultEnum != ResultEnum.DIVIDE_BY_ZERO_ERROR && resultEnum != ResultEnum.INCOMPLETE_OPERATION_ERROR) {
+            firstOperand = EMPTY
+            operator = EMPTY
+            secondOperand = EMPTY
+            operationValue = EMPTY
+            equalsPressed = false
+            setNewOperand(result)
+        }
     }
 }
